@@ -28,6 +28,10 @@ int main(int argc, char* argv[]) {
                         printf("tokentype: integer, value: %d\n", currToken.value.integer);
                     else if (currToken.type == decimal)
                         printf("tokentype: decimal, value: %f\n", currToken.value.decimal);
+                    else if (currToken.type == marker)
+                        printf("tokentype: marker, value: %s\n", currToken.value.string);
+                    else if (currToken.type == identifier)
+                        printf("tokentype: identifier, value: %s\n", currToken.value.string);
                     currToken = tokens[i++];
                 }
             }

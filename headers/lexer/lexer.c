@@ -49,6 +49,7 @@ Token* lexer(const char* sourceCode) {
     int digitMode = 0;
     int foundDot = 0;
     int markerMode = 0;
+    int identifierMode = 0;
 
     while(currentChar != '\0') {
         // increment line counter
@@ -68,7 +69,28 @@ Token* lexer(const char* sourceCode) {
         // handle marker mode
         if (markerMode) {
             if (charIsIdentifier(currentChar)) {
-                
+                //add it to the string
+                currToken.value.string[stringSize++] = currentChar;
+                if (stringSize >= stringCapacity) {
+                    stringCapacity = (int)((double)stringCapacity*1.5);
+                    currToken.value.string = (char*) realloc(currToken.value.string, stringCapacity);
+                }
+                currentChar = sourceCode[readingIndex++];
+                continue;
+            } else {
+                markerMode = 0;
+
+                // add null terminator to string and resize it to fit
+                currToken.value.string = (char*) realloc(currToken.value.string, stringSize+1);
+                currToken.value.string[stringSize] = '\0';
+                currToken.lineNumber = lineCount;
+
+                // push curr token to array
+                tokensArray[tokensIndex++] = currToken;
+                if (tokensIndex >= tokensCapacity) {
+                    tokensCapacity = (int)((double)tokensCapacity*1.5);
+                    tokensArray = (Token*) realloc(tokensArray, tokensCapacity);
+                }
             }
         }
 
@@ -85,7 +107,6 @@ Token* lexer(const char* sourceCode) {
                 }
             } else {
                 digitMode = 0;
-
 
                 // add null terminator to string and resize it to fit
                 currToken.value.string = (char*) realloc(currToken.value.string, stringSize+1);
@@ -104,7 +125,6 @@ Token* lexer(const char* sourceCode) {
                 free(origString);
 
                 foundDot = 0;
-
 
                 // push curr token to array
                 tokensArray[tokensIndex++] = currToken;
@@ -152,9 +172,18 @@ Token* lexer(const char* sourceCode) {
         // look for next token possibility
         if (charIsWhitespace(currentChar)) {
             // ignore it
-
+        } else if (charIsIdentifier(currentChar)) {
+            identifierMode = 1;
+            currToken.type = identifier;
+            stringCapacity = 100;
+            stringSize = 0;
+            currToken.value.string = (char*) malloc(stringCapacity);
         } else if (charIsMarker(currentChar)) {
             markerMode = 1;
+            currToken.type = marker;
+            stringCapacity = 100;
+            stringSize = 0;
+            currToken.value.string = (char*) malloc(stringCapacity);
         } else if (charIsDigit(currentChar)) {
             digitMode = 1;
             currToken.type = integer;
@@ -171,8 +200,7 @@ Token* lexer(const char* sourceCode) {
         } else if (charIsComment(currentChar)) {
             commentMode = 1;
         } else {
-            printf("[ERROR 002] unknown character found: ");
-            printf("%c", currentChar);
+            printf("[ERROR 002] unknown character found: %c\n", currentChar);
             //exit(2);
         }
 
