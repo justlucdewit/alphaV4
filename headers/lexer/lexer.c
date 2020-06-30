@@ -1,5 +1,16 @@
 #include "lexer.h"
 
+int matches(const char* source, const char* find) {
+    unsigned int i = 0;
+    while (source[i] == find[i]) {
+        if (find[i+1] == '\0') {
+            return 1;
+        }
+        i++;
+    }
+    return 0;
+}
+
 int charIsWhitespace(char c) {
     return c == ' '||c == '\t'||c == '\n';
 }
@@ -50,6 +61,7 @@ Token* lexer(const char* sourceCode) {
     int foundDot = 0;
     int markerMode = 0;
     int identifierMode = 0;
+    int importMode = 0;
 
     while(currentChar != '\0') {
         // increment line counter
@@ -64,6 +76,60 @@ Token* lexer(const char* sourceCode) {
             }
             currentChar = sourceCode[readingIndex++];
             continue;
+        }
+
+        if (importMode) {
+            if (charIsIdentifier(currentChar)) {
+                //add it to the string
+                currToken.value.string[stringSize++] = currentChar;
+                if (stringSize >= stringCapacity) {
+                    stringCapacity = (int)((double)stringCapacity*1.5);
+                    currToken.value.string = (char*) realloc(currToken.value.string, stringCapacity);
+                }
+                currentChar = sourceCode[readingIndex++];
+                continue;
+            } else {
+                importMode = 0;
+
+                // add null terminator to string and resize it to fit
+                currToken.value.string = (char*) realloc(currToken.value.string, stringSize+1);
+                currToken.value.string[stringSize] = '\0';
+                currToken.lineNumber = lineCount;
+
+                // push curr token to array
+                tokensArray[tokensIndex++] = currToken;
+                if (tokensIndex >= tokensCapacity) {
+                    tokensCapacity = (int)((double)tokensCapacity*1.5);
+                    tokensArray = (Token*) realloc(tokensArray, tokensCapacity);
+                }
+            }
+        }
+
+        if (identifierMode) {
+            if (charIsIdentifier(currentChar)) {
+                    //add it to the string
+                    currToken.value.string[stringSize++] = currentChar;
+                    if (stringSize >= stringCapacity) {
+                        stringCapacity = (int)((double)stringCapacity*1.5);
+                        currToken.value.string = (char*) realloc(currToken.value.string, stringCapacity);
+                    }
+                    currentChar = sourceCode[readingIndex++];
+                    continue;
+            } else {
+                    identifierMode = 0;
+
+                    // add null terminator to string and resize it to fit
+                    currToken.value.string = (char*) realloc(currToken.value.string, stringSize+1);
+                    currToken.value.string[stringSize] = '\0';
+                    currToken.lineNumber = lineCount;
+
+                    // push curr token to array
+                    tokensArray[tokensIndex++] = currToken;
+                    if (tokensIndex >= tokensCapacity) {
+                        tokensCapacity = (int)((double)tokensCapacity*1.5);
+                        tokensArray = (Token*) realloc(tokensArray, tokensCapacity);
+                    }
+            }
         }
 
         // handle marker mode
@@ -172,12 +238,15 @@ Token* lexer(const char* sourceCode) {
         // look for next token possibility
         if (charIsWhitespace(currentChar)) {
             // ignore it
-        } else if (charIsIdentifier(currentChar)) {
-            identifierMode = 1;
-            currToken.type = identifier;
+	    } else if (matches(sourceCode+readingIndex-1, "import ")) {
+            importMode = 1;
+            currToken.type = import;
+            readingIndex += 6;
             stringCapacity = 100;
             stringSize = 0;
             currToken.value.string = (char*) malloc(stringCapacity);
+            currentChar = sourceCode[readingIndex++];
+            continue;
         } else if (charIsMarker(currentChar)) {
             markerMode = 1;
             currToken.type = marker;
@@ -191,6 +260,13 @@ Token* lexer(const char* sourceCode) {
             stringSize = 0;
             currToken.value.string = (char*) malloc(stringCapacity);
             currToken.value.string[stringSize++] = currentChar;
+	} else if (charIsIdentifier(currentChar)) {
+            identifierMode = 1;
+            currToken.type = identifier;
+            stringCapacity = 100;
+            stringSize = 0;
+            currToken.value.string = (char*) malloc(stringCapacity);
+	    currToken.value.string[stringSize++] = currentChar;
         } else if (charIsString(currentChar)) {
             stringMode = charIsString(currentChar);
             currToken.type = string;

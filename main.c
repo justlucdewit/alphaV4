@@ -32,6 +32,8 @@ int main(int argc, char* argv[]) {
                         printf("tokentype: marker, value: %s\n", currToken.value.string);
                     else if (currToken.type == identifier)
                         printf("tokentype: identifier, value: %s\n", currToken.value.string);
+                    else if (currToken.type == import)
+                        printf("tokentype: import, value: %s\n", currToken.value.string);
                     currToken = tokens[i++];
                 }
             }
