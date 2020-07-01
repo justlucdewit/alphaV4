@@ -30,7 +30,7 @@ typedef struct {
 // the function that will transform a raw
 // sourceCode string into an array of tokens
 // TODO: combine the lexical analyzer modes into one multi-state variable using an enumeration
-Token* lexer(const char* sourceCode);
+void lexer(const char* sourceCode, Token**, Token**);
 
 int charIsWhitespace(char c);
 

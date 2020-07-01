@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <string.h>
+#include "libs/lua/lua.h"
+#include "libs/lua/lauxlib.h"
+#include "headers/libloader/libloader.h"
 
 #include "headers/fileReader/fileReader.h"
 #include "headers/lexer/lexer.h"
@@ -13,14 +16,24 @@ int main(int argc, char* argv[]) {
         if (strcmp(argv[1], "run") == 0) {
             // need an extra argument for the file name
             if (argc >= 3) {
+                // the state of the lua program
+                lua_State *L = luaL_newstate();
+
                 char* fileName = argv[2];
                 // printf("opening file: %s", fileName);
                 char* fileContent = ReadFile(fileName);
-                Token* tokens = lexer(fileContent);
-                // print all the tokens for debug
+                Token* tokens = NULL;
+                Token* imports = NULL;
 
+
+                lexer(fileContent, &tokens, &imports);
+
+                /*
+                // print all the tokens for debug
                 int i = 0;
                 Token currToken = tokens[i++];
+
+
                 while(currToken.type != EOP) {
                     if (currToken.type == string)
                         printf("tokentype: string, value: %s\n", currToken.value.string);
@@ -35,7 +48,9 @@ int main(int argc, char* argv[]) {
                     else if (currToken.type == import)
                         printf("tokentype: import, value: %s\n", currToken.value.string);
                     currToken = tokens[i++];
-                }
+                }*/
+
+                libLoader(L, imports);
             }
         }
 

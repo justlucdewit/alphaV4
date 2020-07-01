@@ -42,11 +42,17 @@ int charIsString(char c) {
     return 0;
 }
 
-Token* lexer(const char* sourceCode) {
+void lexer(const char* sourceCode, Token** tokens, Token** imports) {
     // create storage for the tokens
     int tokensCapacity = 100;
     int tokensIndex = 0;
+
+
     Token* tokensArray = (Token*) malloc(tokensCapacity * sizeof(Token));
+
+    int importsCapacity = 10;
+    int importsIndex = 0;
+    Token* importsArray = (Token*) malloc(importsCapacity * sizeof(Token));
 
     // lexer states
     Token currToken;
@@ -97,10 +103,10 @@ Token* lexer(const char* sourceCode) {
                 currToken.lineNumber = lineCount;
 
                 // push curr token to array
-                tokensArray[tokensIndex++] = currToken;
-                if (tokensIndex >= tokensCapacity) {
-                    tokensCapacity = (int)((double)tokensCapacity*1.5);
-                    tokensArray = (Token*) realloc(tokensArray, tokensCapacity);
+                importsArray[importsIndex++] = currToken;
+                if (importsIndex >= importsCapacity) {
+                    importsCapacity = (int)((double)importsCapacity*1.5);
+                    importsArray = (Token*) realloc(importsArray, importsCapacity);
                 }
             }
         }
@@ -285,7 +291,9 @@ Token* lexer(const char* sourceCode) {
     }
 
     currToken.type = EOP;
-    tokensArray[tokensIndex++] = currToken;
+    tokensArray[tokensIndex] = currToken;
+    importsArray[importsIndex] = currToken;
 
-    return tokensArray;
+    *tokens = tokensArray;
+    *imports = importsArray;
 }
