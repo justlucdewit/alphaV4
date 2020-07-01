@@ -8,6 +8,7 @@
 #include "headers/lexer/lexer.h"
 
 #define VERSION "alphaV4.0.1"
+#define DEPS_MADE 1
 
 int main(int argc, char* argv[]) {
 
@@ -16,8 +17,12 @@ int main(int argc, char* argv[]) {
         if (strcmp(argv[1], "run") == 0) {
             // need an extra argument for the file name
             if (argc >= 3) {
+
                 // the state of the lua program
                 lua_State *L = luaL_newstate();
+
+                luaL_openlibs(L);
+                luaL_dostring(L, "commands = {}");
 
                 char* fileName = argv[2];
                 // printf("opening file: %s", fileName);
@@ -27,7 +32,6 @@ int main(int argc, char* argv[]) {
 
 
                 lexer(fileContent, &tokens, &imports);
-
                 /*
                 // print all the tokens for debug
                 int i = 0;
@@ -51,6 +55,7 @@ int main(int argc, char* argv[]) {
                 }*/
 
                 libLoader(L, imports);
+                //lua_getglobal(L, "test");
             }
         }
 

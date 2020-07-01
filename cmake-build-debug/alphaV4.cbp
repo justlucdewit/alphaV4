@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="alphaV4"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="msvc8"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/programming/c/alphaV4/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/programming/c/alphaV4/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="LibsModule">
+				<Option output="D:/programming/c/alphaV4/cmake-build-debug/LibsModule.lib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/programming/c/alphaV4/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 LibsModule"/>
+					<CompileFile command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="LibsModule/fast">
+				<Option output="D:/programming/c/alphaV4/cmake-build-debug/LibsModule.lib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/programming/c/alphaV4/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 LibsModule/fast"/>
+					<CompileFile command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="alphaV4">
+				<Option output="D:/programming/c/alphaV4/cmake-build-debug/alphaV4.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/programming/c/alphaV4/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="D:/programming/c/alphaV4"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 alphaV4"/>
+					<CompileFile command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="alphaV4/fast">
+				<Option output="D:/programming/c/alphaV4/cmake-build-debug/alphaV4.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/programming/c/alphaV4/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="D:/programming/c/alphaV4"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 alphaV4/fast"/>
+					<CompileFile command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/programming/c/alphaV4/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\programming\c\alphaV4\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/programming/c/alphaV4/headers/fileReader/fileReader.c">
+			<Option target="alphaV4"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/headers/fileReader/fileReader.h">
+			<Option target="alphaV4"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/headers/lexer/lexer.c">
+			<Option target="alphaV4"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/headers/lexer/lexer.h">
+			<Option target="alphaV4"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/headers/libloader/libloader.c">
+			<Option target="alphaV4"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/headers/libloader/libloader.h">
+			<Option target="alphaV4"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lapi.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lapi.h">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lauxlib.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lauxlib.h">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lbaselib.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lcode.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lcode.h">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lcorolib.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lctype.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lctype.h">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/ldblib.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/ldebug.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/ldebug.h">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/ldo.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/ldo.h">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/ldump.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lfunc.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lfunc.h">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lgc.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lgc.h">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/linit.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/liolib.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/llex.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/llex.h">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lmathlib.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lmem.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lmem.h">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/loadlib.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lobject.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lobject.h">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lopcodes.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lopcodes.h">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/loslib.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lparser.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lparser.h">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lstate.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lstate.h">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lstring.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lstring.h">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lstrlib.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/ltable.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/ltable.h">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/ltablib.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/ltm.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/ltm.h">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lundump.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lundump.h">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lutf8lib.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lvm.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lvm.h">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lzio.c">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/libs/lua/lzio.h">
+			<Option target="LibsModule"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/main.c">
+			<Option target="alphaV4"/>
+		</Unit>
+		<Unit filename="D:/programming/c/alphaV4/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

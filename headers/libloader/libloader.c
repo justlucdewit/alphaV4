@@ -29,6 +29,7 @@ void libLoader(lua_State *L, Token* tokens) {
     while (currToken.type != EOP) {
         assertType(currToken, 6);
         printf("loading command: %s\n", currToken.value.string);
+        luaL_dofile(L, currToken.value.string);
         currToken = tokens[++tokIndex];
     }
     return;

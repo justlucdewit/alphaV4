@@ -98,8 +98,12 @@ void lexer(const char* sourceCode, Token** tokens, Token** imports) {
                 importMode = 0;
 
                 // add null terminator to string and resize it to fit
-                currToken.value.string = (char*) realloc(currToken.value.string, stringSize+1);
-                currToken.value.string[stringSize] = '\0';
+                currToken.value.string = (char*) realloc(currToken.value.string, stringSize+5);
+                currToken.value.string[stringSize] = '.';
+                currToken.value.string[stringSize+1] = 'l';
+                currToken.value.string[stringSize+2] = 'u';
+                currToken.value.string[stringSize+3] = 'a';
+                currToken.value.string[stringSize+4] = '\0';
                 currToken.lineNumber = lineCount;
 
                 // push curr token to array

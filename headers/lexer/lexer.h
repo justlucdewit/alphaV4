@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 // an enum that stores what type a token is
 typedef enum{
