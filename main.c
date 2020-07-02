@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
                 lua_State *L = luaL_newstate();
 
                 luaL_openlibs(L);
-                luaL_dostring(L, "commands = {}");
+                luaL_dostring(L, "commands = {}\nalpha_string = 1");
 
                 char* fileName = argv[2];
                 // printf("opening file: %s", fileName);
@@ -55,7 +55,8 @@ int main(int argc, char* argv[]) {
                 }*/
 
                 libLoader(L, imports);
-                //lua_getglobal(L, "test");
+                lua_getglobal(L, "puts");
+                lua_pcall(L, 0, 0, 0);
             }
         }
 

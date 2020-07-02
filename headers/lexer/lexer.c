@@ -93,6 +93,25 @@ void lexer(const char* sourceCode, Token** tokens, Token** imports) {
                     currToken.value.string = (char*) realloc(currToken.value.string, stringCapacity);
                 }
                 currentChar = sourceCode[readingIndex++];
+
+                if (currentChar == '\0') {
+                    currToken.value.string = (char*) realloc(currToken.value.string, stringSize+5);
+                    currToken.value.string[stringSize] = '.';
+                    currToken.value.string[stringSize+1] = 'l';
+                    currToken.value.string[stringSize+2] = 'u';
+                    currToken.value.string[stringSize+3] = 'a';
+                    currToken.value.string[stringSize+4] = '\0';
+                    currToken.lineNumber = lineCount;
+
+                    // push curr token to array
+                    importsArray[importsIndex++] = currToken;
+                    if (importsIndex >= importsCapacity) {
+                        importsCapacity = (int)((double)importsCapacity*1.5);
+                        importsArray = (Token*) realloc(importsArray, importsCapacity);
+                    }
+
+                    break;
+                }
                 continue;
             } else {
                 importMode = 0;

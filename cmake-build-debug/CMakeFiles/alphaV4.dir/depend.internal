@@ -11,6 +11,7 @@ CMakeFiles/alphaV4.dir/headers/libloader/libloader.c.obj
  ../libs/lua/lauxlib.h
  ../libs/lua/lua.h
  ../libs/lua/luaconf.h
+ D:/programming/c/alphaV4/headers/fileReader/fileReader.h
  D:/programming/c/alphaV4/headers/lexer/lexer.h
  D:/programming/c/alphaV4/headers/libloader/libloader.c
  D:/programming/c/alphaV4/headers/libloader/libloader.h

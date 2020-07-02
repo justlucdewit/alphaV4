@@ -28,9 +28,17 @@ void libLoader(lua_State *L, Token* tokens) {
     Token currToken = tokens[tokIndex];
     while (currToken.type != EOP) {
         assertType(currToken, 6);
-        printf("loading command: %s\n", currToken.value.string);
+
+        if (!fileExists(currToken.value.string)) {
+            printf("[ERROR] could not import %s", currToken.value.string);
+            exit(1);
+        }
+
+        //printf("importing %s\n", currToken.value.string);
+
         luaL_dofile(L, currToken.value.string);
         currToken = tokens[++tokIndex];
     }
-    return;
+
+    //TODO: look if the funtions are actually imported
 }

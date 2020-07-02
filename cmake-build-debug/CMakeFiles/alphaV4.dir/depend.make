@@ -10,6 +10,7 @@ CMakeFiles\alphaV4.dir\headers\lexer\lexer.c.obj: ..\headers\lexer\lexer.h
 CMakeFiles\alphaV4.dir\headers\libloader\libloader.c.obj: ..\libs\lua\lauxlib.h
 CMakeFiles\alphaV4.dir\headers\libloader\libloader.c.obj: ..\libs\lua\lua.h
 CMakeFiles\alphaV4.dir\headers\libloader\libloader.c.obj: ..\libs\lua\luaconf.h
+CMakeFiles\alphaV4.dir\headers\libloader\libloader.c.obj: ..\headers\fileReader\fileReader.h
 CMakeFiles\alphaV4.dir\headers\libloader\libloader.c.obj: ..\headers\lexer\lexer.h
 CMakeFiles\alphaV4.dir\headers\libloader\libloader.c.obj: ..\headers\libloader\libloader.c
 CMakeFiles\alphaV4.dir\headers\libloader\libloader.c.obj: ..\headers\libloader\libloader.h

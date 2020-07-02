@@ -27,3 +27,13 @@ char* ReadFile(char* fileName) {
     fclose(fp);
     return fileContent;
 }
+
+uint8_t fileExists(char* fileName) {
+    FILE* fp = fopen(fileName, "r");
+    if (fp == NULL) {
+        return 0;
+    } else {
+        fclose(fp);
+        return 1;
+    }
+}
