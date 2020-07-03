@@ -23,7 +23,7 @@ void assertType(Token t, TokenType tt){
     }
 }
 
-void libLoader(lua_State *L, Token* tokens) {
+void commandLoader(lua_State *L, Token* tokens) {
     unsigned int tokIndex = 0;
     Token currToken = tokens[tokIndex];
     while (currToken.type != EOP) {

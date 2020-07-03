@@ -2,10 +2,10 @@
 #include <string.h>
 #include "libs/lua/lua.h"
 #include "libs/lua/lauxlib.h"
-#include "headers/libloader/libloader.h"
+#include "libs/lua/lualib.h"
 
-#include "headers/fileReader/fileReader.h"
-#include "headers/lexer/lexer.h"
+#include "headers/libloader/libloader.h"
+#include "headers/interpreter/interpreter.h"
 
 #define VERSION "alphaV4.0.1"
 #define DEPS_MADE 1
@@ -30,33 +30,12 @@ int main(int argc, char* argv[]) {
                 Token* tokens = NULL;
                 Token* imports = NULL;
 
-
                 lexer(fileContent, &tokens, &imports);
-                /*
-                // print all the tokens for debug
-                int i = 0;
-                Token currToken = tokens[i++];
 
+                commandLoader(L, imports);
+                free(imports);
 
-                while(currToken.type != EOP) {
-                    if (currToken.type == string)
-                        printf("tokentype: string, value: %s\n", currToken.value.string);
-                    else if (currToken.type == integer)
-                        printf("tokentype: integer, value: %d\n", currToken.value.integer);
-                    else if (currToken.type == decimal)
-                        printf("tokentype: decimal, value: %f\n", currToken.value.decimal);
-                    else if (currToken.type == marker)
-                        printf("tokentype: marker, value: %s\n", currToken.value.string);
-                    else if (currToken.type == identifier)
-                        printf("tokentype: identifier, value: %s\n", currToken.value.string);
-                    else if (currToken.type == import)
-                        printf("tokentype: import, value: %s\n", currToken.value.string);
-                    currToken = tokens[i++];
-                }*/
-
-                libLoader(L, imports);
-                lua_getglobal(L, "puts");
-                lua_pcall(L, 0, 0, 0);
+                interpreter(L, tokens);
             }
         }
 
