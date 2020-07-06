@@ -6,6 +6,7 @@
 
 #include "headers/libloader/libloader.h"
 #include "headers/interpreter/interpreter.h"
+#include "headers/commandIdentifier/commandIdentifier.h"
 
 #define VERSION "alphaV4.0.1"
 #define DEPS_MADE 1
@@ -32,10 +33,15 @@ int main(int argc, char* argv[]) {
 
                 lexer(fileContent, &tokens, &imports);
 
+                // import all the commands into the lua state
                 commandLoader(L, imports);
                 free(imports);
 
-                interpreter(L, tokens);
+                // mark commands as commands, instead of identifier
+                commandIdentifier(L, &tokens);
+
+                // run the program
+                //interpreter(L, tokens);
             }
         }
 
