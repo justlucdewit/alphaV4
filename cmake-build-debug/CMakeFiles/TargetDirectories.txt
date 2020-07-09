@@ -1,4 +1,0 @@
-D:/programming/c/alphaV4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-D:/programming/c/alphaV4/cmake-build-debug/CMakeFiles/LibsModule.dir
-D:/programming/c/alphaV4/cmake-build-debug/CMakeFiles/alphaV4.dir
-D:/programming/c/alphaV4/cmake-build-debug/CMakeFiles/edit_cache.dir
