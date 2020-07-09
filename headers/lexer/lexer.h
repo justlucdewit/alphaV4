@@ -19,7 +19,9 @@ typedef enum{
 
 // the struct that will store the tokens
 typedef struct {
-    int lineNumber;
+    unsigned int lineNumber;
+    unsigned int commandIndex;
+    unsigned int commandArgCount;
     TokenType type;
     union{
         double decimal;

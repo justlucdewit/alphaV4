@@ -8,8 +8,34 @@ void assertCommand(Token t) {
 }
 
 void interpreter(lua_State *L, Token* tokens) {
-    //TODO: make sure all the commands in the tokens array are typed as commands, not as identifiers
-    unsigned int i = 0;
-    Token currentToken = tokens[i];
-    assertCommand(currentToken);
+    unsigned int readingPosition = 0;
+    Token currentToken = tokens[readingPosition];
+    lua_getglobal(L, "commands");
+
+    while (1) {
+        if (currentToken.type == EOP) {
+            break;
+        }
+
+        // make sure we are at a command
+        assertCommand(currentToken);
+
+        // get the function
+        lua_geti(L, -1, currentToken.commandIndex); // pushed command item
+        lua_geti(L, -1, 1); // push function
+
+        // push arguments
+
+        // call the function
+        lua_pcall(L, 0, 0, 0);
+
+        // clear the stack
+        lua_pop(L, 1);
+
+        // go to next command
+        readingPosition += currentToken.commandIndex + 1;
+        currentToken = tokens[readingPosition];
+    }
+
+    lua_pop(L, 1);
 }

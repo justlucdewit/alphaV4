@@ -23,7 +23,8 @@ int main(int argc, char* argv[]) {
                 lua_State *L = luaL_newstate();
 
                 luaL_openlibs(L);
-                luaL_dostring(L, "commands = {}\nalpha_string = 1");
+                luaL_dostring(L, "commands = {}\nalpha_string = 1"
+                                 "\nalpha_identifier");
 
                 char* fileName = argv[2];
                 // printf("opening file: %s", fileName);
@@ -41,7 +42,7 @@ int main(int argc, char* argv[]) {
                 commandIdentifier(L, &tokens);
 
                 // run the program
-                //interpreter(L, tokens);
+                interpreter(L, tokens);
             }
         }
 

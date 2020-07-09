@@ -1,6 +1,11 @@
 #pragma once
 
+#include <string.h>
+
 #include "libs/lua/lua.h"
 #include "libs/lua/lauxlib.h"
 
-int luah_mapHasKey(lua_State* L, const char* map, const char *key);
+
+int luah_commandExists(lua_State* L, const char *command);
+int luah_commandIndex(lua_State* L, const char *command);
+int luah_commandArgCount(lua_State* L, const char *command, unsigned int i);
