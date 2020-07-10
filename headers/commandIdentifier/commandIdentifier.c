@@ -1,6 +1,7 @@
 #include "commandIdentifier.h"
 
 void commandIdentifier(lua_State* L, Token** tokens) {
+    puts("here");
     unsigned int i = 0;
 
     while ((*tokens)[i].type != EOP) {
