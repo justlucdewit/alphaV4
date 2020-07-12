@@ -12,7 +12,7 @@ int luah_commandExists (lua_State* L, const char *command) {
             return 0; // false
         }
 
-        lua_rawgeti(L, -1, 2); // get string name of command
+        lua_rawgeti(L, -1, 2); // get the string of the function
         const char *currCommand = lua_tostring(L, -1);
 
         // pop top 2 values from the stack
